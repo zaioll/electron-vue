@@ -1,0 +1,26 @@
+{
+  "appId": "com.zaioll.myapp",
+  "linux": {
+    "category": "Development",
+    "target": ["AppImage", "deb"]
+  },
+  "deb": {
+    "depends": [
+      "gconf2",
+      "gconf-service",
+      "libnotify4",
+      "libappindicator1",
+      "libxtst6",
+      "libnss3",
+      "libsecret-1-0"
+    ]
+  },
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "./package.json",
+    "./main.js",
+    "./build/**/*"
+  ]
+}

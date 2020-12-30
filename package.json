@@ -1,19 +1,22 @@
 {
-  "name": "apis-assistent",
+  "name": "apis-electron_vue-template",
   "version": "1.0.0",
-  "description": "",
-  "main": "./main.js",
+  "description": "Project template with Electron + Vuejs 3 + Parcel 2",
   "private": true,
   "scripts": {
-    "parcel-dev": "./node_modules/.bin/parcel ./src/index.html --dist-dir build/",
-    "electron-dev": "ELECTRON_START_URL=http://localhost:1234 ./node_modules/.bin/electron --no-sandbox .",
-    "build": "./node_modules/.bin/parcel build ./src/index.html --dist-dir build/ --public-url ./",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder",
-    "clean": "rm -fr .parcel-cache/* && rm -fr build/* && exit",
-    "postinstall": "electron-builder install-app-deps"
+    "clean": "rm -fr ./.parcel-cache ./build && exit",
+    "parcel-dev": "yarn run clean && ./node_modules/.bin/parcel ./src/index.html --dist-dir ./build",
+    "parcel-prod": "yarn run clean && ./node_modules/.bin/parcel build --public-url ./ --dist-dir ./build ./src/index.html",
+    "electron-dev": "yarn run parcel-dev && ELECTRON_START_URL=http://localhost:1234 ./node_modules/.bin/electron --no-sandbox ./main.js",
+    "electron-prod": "yarn run parcel-prod && ./node_modules/.bin/electron --no-sandbox ./main.js",
+    "electron-pack": "./node_modules/.bin/electron-builder -c.extraMetadata.main=./main.js --config ./electron-builder.json --dir",
+    "electron-dist": "./node_modules/.bin/electron-builder -c.extraMetadata.main=./main.js --config ./electron-builder.json",
+    "postinstall": "./node_modules/.bin/electron-builder install-app-deps"
   },
-  "author": "Láyro Chrystofer",
+  "author": {
+    "name": "Láyro Chrystofer",
+    "email": "zaioll@protonmail.com"
+  },
   "license": "BSD-3",
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.4",

@@ -1,5 +1,5 @@
 {
-  "name": "apis-electron_vue-template",
+  "name": "electron-vue",
   "version": "1.0.0",
   "description": "Project template with Electron + Vuejs 3 + Parcel 2",
   "private": true,

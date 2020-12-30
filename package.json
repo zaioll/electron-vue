@@ -1,0 +1,29 @@
+{
+  "name": "apis-assistent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./main.js",
+  "private": true,
+  "scripts": {
+    "parcel-dev": "./node_modules/.bin/parcel ./src/index.html --dist-dir build/",
+    "electron-dev": "ELECTRON_START_URL=http://localhost:1234 ./node_modules/.bin/electron --no-sandbox .",
+    "build": "./node_modules/.bin/parcel build ./src/index.html --dist-dir build/ --public-url ./",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "clean": "rm -fr .parcel-cache/* && rm -fr build/* && exit",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "author": "Láyro Chrystofer",
+  "license": "BSD-3",
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.4",
+    "electron": "^11.1.1",
+    "electron-builder": "^22.9.1",
+    "electron-reload": "^1.5.0",
+    "parcel": "^2.0.0-nightly.495"
+  },
+  "dependencies": {
+    "vue": "^3.0.4",
+    "vue-loader": "^16.1.2"
+  }
+}
